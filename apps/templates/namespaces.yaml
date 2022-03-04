@@ -2,4 +2,4 @@ apiVersion: v1
 kind: Namespace
 metadata:
   # 创建业务所需的namespace
-  name: lucktest-1
+  name: hyftest-1
