@@ -2,5 +2,5 @@ spec:
   destination:
     server: https://kubernetes.default.svc
   source:
-    repoURL: https://github.com/15527952185/testgo.git
+    repoURL: https://github.com/15527952185/testgo
     targetRevision: HEAD
