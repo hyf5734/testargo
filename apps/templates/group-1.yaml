@@ -2,18 +2,18 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: group-1
-  namespace: cloud-basic
+  namespace: cloud-basic-1
   finalizers:
   - resources-finalizer.argocd.argoproj.io
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
 spec:
   destination:
-    namespace: cloud-basic
+    namespace: cloud-basic-1
     server: {{ .Values.spec.destination.server }}
   project: default
   source:
-    path: cloud-basic/cloud-basic/group-1
+    path: cloud-basic-1/group-1
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
   syncPolicy:
