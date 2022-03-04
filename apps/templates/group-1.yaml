@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   # app名字
-  name: huyifan-1
+  name: huyifan
   # app存放的namespace，统一为argocd
   namespace: argocd
   annotations:
