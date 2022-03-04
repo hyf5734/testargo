@@ -1,6 +1,8 @@
 spec:
   destination:
     server: https://kubernetes.default.svc
+    # 定义业务所需的namespace
+    namespace1: hyftest-1
   source:
     repoURL: https://github.com/hyf5734/testargo
     targetRevision: HEAD
