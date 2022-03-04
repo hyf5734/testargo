@@ -1,22 +1,28 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  # app名字
   name: group-1
-  namespace: cloud-basic-1
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
+  # app存放的namespace，统一为argocd
+  namespace: argocd
   annotations:
+    # app同步的波次
     argocd.argoproj.io/sync-wave: "-1"
+    baymax.io/runtime-env: "prod"  
 spec:
+  # app中的资源同步的目标集群和namespace，即具体的k8s资源创建在哪里
   destination:
-    namespace: cloud-basic-1
+    namespace: {{ .Values.spec.destination.namespace1 }}
     server: {{ .Values.spec.destination.server }}
   project: default
+  # app中的定义来源
   source:
     path: cloud-basic-1/group-1
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+  # 同步策略，建议关掉，因为git push就会触发argocd sync
+  syncPolicy: {}
+    #automated:
+    #  prune: true
+    #  selfHeal: true
+    #  allowEmpty: true
