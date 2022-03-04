@@ -1,6 +1,0 @@
-apiVersion: v2
-name: huyifan-1
-description: huyifan-1 app of apps
-type: application
-version: 0.1.0
-appVersion: "v1"
